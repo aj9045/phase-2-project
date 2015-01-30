@@ -1,0 +1,41 @@
+<div class="show_notes">
+  <ol>
+    <% user.entries.each do |entry| %>
+      <% first_name_id = FirstName.find(entry.first_name_id)%>
+      <% last_name_id = LastName.find(entry.last_name_id) %>
+
+      <li><%= first_name_id.first_name + " " + last_name_id.last_name %>
+        <% if current_user %>
+          <form id="edit-user" method="post" action="/entry/<%= entry.id %>/delete">
+            <input type="hidden" name="_method" value="delete">
+            <div class="submit"><input type="submit" value="Delete Name"></div>
+          </form>
+        <% end %>
+
+          <div class="entry-note"><%= entry.note %></div>
+
+        <% if current_user %>
+          <div class="note">
+          <% if entry.note == nil %>
+            <a href="/entry/<%= entry.id %>/note" class="note-btns">Add Note</a>
+            <br>
+          <% else %>
+            <a href="/entry/<%= entry.id %>/edit" class="note-btns">Edit</a>
+            <br>
+            <form class="delete-note" method="post" action="/note/<%= entry.id %>/delete">
+              <input type="hidden" name="_method" value="put">
+              <div class="delete-note"><input type="submit" value="Delete"></div>
+            </form>
+          <% end %>
+        <% end %>
+
+
+
+      <%= erb :'/entry/_note', locals: {entry: entry} %>
+    </div>
+    </li>
+
+    <br>
+    <% end %>
+  </ol>
+</div>

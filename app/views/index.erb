@@ -1,0 +1,25 @@
+<div class="container">
+  <div id="generate-container">
+  <br>
+    <form id="generate" method="post" action="/name">
+
+
+      <label class="label" for="name">First Name</label>
+      <input class="first" type="text" name="first_name" value="<%= first_name %>"
+   >
+      <label class="label" for="about">Last Name</label>
+      <input class="last" type="text" name="last_name" value="<%= last_name %>" >
+      <br>
+
+      <br>
+      <%= display_error %> <!--#TODO if name is not filled back in-->
+      <br>
+      <div class="save"><input type="submit" value="Save"></div>
+      <!-- <div class="cancel-edit-user"><input type="submit" value="Cancel"></div> -->
+    </form>
+    <br>
+    <form id="generate-btn" method="get" action="/">
+      <input type="submit" value="Generate">
+    </form>
+  </div>
+</div>

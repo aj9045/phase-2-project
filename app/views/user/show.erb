@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div id="user-profile">
+    <p>Username: <%= user.username %></p>
+    <p id="users-name">Name: <span><%= user.name %></span></p>
+    <p id="about-user">About: <span><%= user.about %></span></p>
+    <% if current_user %>
+    <a class="edit-pro" href="/user/<%= user.id %>/edit">Edit Profile</a>
+    <% end %>
+  </div>
+
+<%= erb :'/user/_edit', locals: {user: user} %>
+
+<%= erb :'/user/_show_list', locals: {user: user} %>
+
+</div>
+  <% if current_user %>
+    <form id="delete-account" method="post" action="/user/<%= user.id %>/delete">
+      <input type="hidden" name="_method" value="delete">
+        <div class="submit"><input type="submit" value="Delete Account"></div>
+    </form>
+  <% end %>
+

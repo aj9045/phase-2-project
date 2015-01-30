@@ -1,0 +1,13 @@
+ <br>
+
+  <form class="note-edit" method="post" action="/entry/<%= entry.id %>">
+    <input type="hidden" name="_method" value="put">
+    <label class="label" for="name">Note Content:</label>
+    <br>
+    <textarea name="note[note]" ><%= entry.note %></textarea>
+
+    <br>
+    <div class="save-note"><input type="submit" value="Save"></div>
+  </form>
+
+

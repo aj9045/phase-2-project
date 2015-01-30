@@ -1,0 +1,12 @@
+<div class="container">
+  <ol>
+    <% users.each do |user|%>
+      <li>
+        <a href="/user/<%= user.id %>"><%= user.username %> </a> - <%= user.name %>
+          <ul>
+            <li>saved names: <%= user.entries.count %></li>
+          </ul>
+      </li>
+    <% end %>
+  </ol>
+</div>

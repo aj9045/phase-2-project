@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Sign In</h1>
+
+  <form id="sign-in" method="post" action="/sign_in">
+    <label class="label" for="username">Username</label>
+    <input type="text" name="username" placeholder="Username" ><br>
+
+    <label class="label" for="password">Password</label>
+    <input type="password" name="password" placeholder="Password">
+
+    <br>
+    <%= display_error %>
+    <br>
+    <div class="submit"><input type="submit" value="Sign In"></div>
+  </form>
+
+</div>

@@ -1,0 +1,23 @@
+
+<div class="edit-form">
+  <form id="edit-user" method="post" action="/user/<%=user.id %>/edit">
+    <input type="hidden" name="_method" value="put">
+
+    <label class="label" for="name">Name</label>
+    <input type="text" name="user[name]" value="<%= user.name %>" >
+    <br>
+    <br>
+
+    <label class="label" for="about">About</label>
+    <textarea name="user[about]"><%= user.about %></textarea>
+    <br>
+
+    <br>
+    <%= display_error %> <!--#TODO if name is not filled back in-->
+    <br>
+    <input class="save-user" type="submit" value="Save">
+    <!-- <div class="cancel-edit-user"><input type="submit" value="Cancel"></div> -->
+
+  </form>
+</div>
+
